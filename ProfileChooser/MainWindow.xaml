@@ -1,0 +1,88 @@
+﻿<Window x:Class="Profile_directory.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Profile_directory"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500
+        " Width="1200
+        ">
+    <Grid>
+        <ListBox x:Name="directionBox" HorizontalAlignment="Left" VirtualizingPanel.ScrollUnit="Pixel" Height="419" VerticalAlignment="Top" Width="600" 
+                 ItemsSource="{Binding directions}" Margin="0,50,0,0" SelectedItem="{Binding SelectedDirection}" SelectionMode="Single">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="5">
+                        <TextBlock FontSize="16">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0} {1}">
+                                    <Binding Path="Number"/>
+                                    <Binding Path="Name"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                        <ListBox x:Name="profileBox" HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="550" ItemsSource="{Binding Profiles}" 
+                                 SelectedItem="{Binding DataContext.SelectedProfile, RelativeSource={RelativeSource AncestorType=Window}}" SelectionMode="Single">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock FontSize="14">
+                                        <TextBlock.Text>
+                                            <MultiBinding StringFormat="{}{0} ({1})">
+                                                <Binding Path="Name"/>
+                                                <Binding Path="Faculty"/>
+                                            </MultiBinding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="126,6,0,0" VerticalAlignment="Top" Width="174" Height="26" 
+                  ItemsSource="{Binding users}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedUser}"/>
+        <Label x:Name="label" Content="Пользователь:" HorizontalAlignment="Left" Margin="30,6,0,0" VerticalAlignment="Top" Width="91"/>
+        <Button x:Name="button" Content="Добавить" HorizontalAlignment="Left" Margin="364,6,0,0" VerticalAlignment="Top" Width="74" Height="26" Command="{Binding AddDirectionToUser}"/>
+        <ListBox x:Name="chosenlistBox" HorizontalAlignment="Left" Height="419" Margin="605,50,-13,0" VerticalAlignment="Top" Width="580" SelectionMode="Single" ItemsSource="{Binding chosenDirections}" SelectedItem="{Binding ChosenSelectedDirection}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="5"  >
+                        <TextBlock FontSize="16"  VerticalAlignment="Stretch" Width="570"   >
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0} {1}">
+                                    <Binding Path="Number"/>
+                                    <Binding Path="Name"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                        <ListBox x:Name="chosenprofileBox" HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="550" ItemsSource="{Binding Profiles}" SelectionMode="Single" 
+                                 SelectedItem="{Binding DataContext.ChosenSelectedProfile, RelativeSource={RelativeSource AncestorType=Window}}">
+                            <ListBox.ItemTemplate >
+                                <DataTemplate>
+                                    <TextBlock FontSize="14" >
+                                        <TextBlock.Text>
+                                            <MultiBinding StringFormat="{}{0} ({1})">
+                                                <Binding Path="Name"/>
+                                                <Binding Path="Faculty"/>
+                                            </MultiBinding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button x:Name="button1" Content="Выше" Command="{Binding UpCommand}" HorizontalAlignment="Left" Margin="712,6,0,0" VerticalAlignment="Top" Width="76" Height="26"/>
+        <Button x:Name="button2" Content="Ниже" Command="{Binding DownCommand}" HorizontalAlignment="Left" Margin="637,6,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
+        <Button x:Name="button3" Content="Очистить" HorizontalAlignment="Left" Margin="888,6,0,0" VerticalAlignment="Top" Width="74" Height="26" Command="{Binding ClearCommand}"/>
+        <Button x:Name="button4" Content="Сохранить" HorizontalAlignment="Left" Margin="1037,6,0,0" VerticalAlignment="Top" Width="75" Height="26" Command="{Binding UploadCommand}"/>
+
+
+
+
+    </Grid>
+</Window>

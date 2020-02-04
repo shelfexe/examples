@@ -1,0 +1,29 @@
+﻿<Window x:Class="ComputerGraphics.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ComputerGraphics"
+        mc:Ignorable="d"
+        Title="Компьютерная графика" Height="770" Width="1210">
+    
+    <Grid >
+        
+        <Menu Height="25" VerticalAlignment="Top" Grid.ColumnSpan="2" >
+            <MenuItem Header="Кривые безье">
+                <MenuItem Header="Кривая Безье третьего порядка" Click="QuadraticBezier_Click"></MenuItem>
+                <MenuItem Header="Кривая Безье четвертого порядка" Click="Bezier_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Треугольник МКО" Click="MKO_Click"></MenuItem>
+            <MenuItem Header="Фракталы" >
+                <MenuItem Header="Снежинка Коха" Click="fractal_Click"></MenuItem>
+                <MenuItem Header="Дракон Хартера-Хейтуэя" Click="dragon_Click"></MenuItem>
+                <MenuItem Header="Множество Жюлиа" Click="julia_Click"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <Grid x:Name="ContentGrid" Margin="0,25,0,0" AutomationProperties.Name="ContentGrid">
+           
+        </Grid>
+    </Grid>
+</Window>
+

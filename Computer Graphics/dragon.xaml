@@ -1,0 +1,14 @@
+﻿<UserControl x:Class="ComputerGraphics.dragon"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ComputerGraphics"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="1200">
+    <Grid>
+        <Button x:Name="button" Content="Построить" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="76" Click="button_Click"/>
+        <Canvas x:Name="canvas" HorizontalAlignment="Left" Height="680" Margin="10,10,0,0" VerticalAlignment="Top" Width="1180"/>
+
+    </Grid>
+</UserControl>
